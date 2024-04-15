@@ -1,0 +1,13 @@
+version: '3'
+env:
+  TaskInfo: "Migrations POC"
+
+tasks:
+  migrate:
+    cmds:
+      - docker run --rm -v "/home/danie/Labs/FlyWay-Lab/sql-file:/flyway/db" -v "/home/danie/Labs/FlyWay-Lab/migrations:/flyway/sql" -v "/home/danie/Labs/FlyWay-Lab/conf:/flyway/conf" redgate/flyway migrate
+
+  verify:
+    cmds:
+      - docker run --rm -v "/home/danie/Labs/FlyWay-Lab/sql-file:/flyway/db" -v "/home/danie/Labs/FlyWay-Lab/migrations:/flyway/sql" -v "/home/danie/Labs/FlyWay-Lab/conf:/flyway/conf" redgate/flyway info
+      
